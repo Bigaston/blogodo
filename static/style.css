@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.wrapper {
+    padding: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-img {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 10px;
+}
+
+.content {
+  margin-top: 0px;
+}
+
+.content > h1 {
+  margin: 0px;
+  text-align: center;
+  font-size: 45px;
+}
+
+.content > p:not(.subtitle) {
+  text-align: justify;
+}
+
+.content > .subtitle {
+  margin-top: 0px;
+  text-align: right;
+  font-style: italic;
+}
+
+.content > .subtitle:before {
+  content: "‟";
+  font-size: 20px;
+  font-style: none;
+}
+
+.content > .subtitle:after {
+  content: "”";
+  font-size: 20px;
+  font-style: none;
+}
+
+@media screen and (max-width: 490px) {
+  .content > h1 {
+    font-size: 30px;
+  }
+  
+  .content > .subtitle {
+    text-align: center;
+  }
+}
+
+.tags span {
+  background: linear-gradient(120deg,#2C3E50,#2C3E50);
+  padding: 2px 5px;
+  color: black;
+  text-decoration: none;
+  border-radius: 2px;
+  color: #F4F6F7;
+}
+
+.tags span:before {
+  content: '#';
+}
+
+.date {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.date:before {
+  content: "Publié le "
+}

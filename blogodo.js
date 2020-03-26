@@ -1,18 +1,35 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const path = require("path")
-const bdd = require("./models")
+const fs = require("fs")
+const file = require("./modules/file")
 
 require('dotenv').config()
+
+file.render()
+
+fs.watch('./source', { encoding: 'buffer' }, (eventType, filename) => {
+	file.render()
+});
 
 var app = express()
 
 app.use(bodyParser.json());
 
-app.use("/static", express.static('./web/static'));
+app.get("/static/:file", (req, res) => {
+	if (fs.existsSync("./static/" + req.params.file)) {
+		res.sendFile(path.join(__dirname, "./static/" + req.params.file))
+	} else {
+		res.status(404).send(404)
+	}
+});
 
-app.get("/*", (req, res) => {
-	res.sendFile(path.join(__dirname, "./web/index.html"))
+app.get("/article/:slug", (req, res) => {
+	if (fs.existsSync("./build/" + req.params.slug + ".html")) {
+		res.sendFile(path.join(__dirname, "./build/" + req.params.slug + ".html"))
+	} else {
+		res.status(404).send(404)
+	}
 })
 
 app.listen(process.env.PORT, () => console.log(`Serveur lancé sur le port ${process.env.PORT}`))
