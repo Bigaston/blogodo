@@ -25,8 +25,16 @@ app.get("/static/:file", (req, res) => {
 });
 
 app.get("/article/:slug", (req, res) => {
-	if (fs.existsSync("./build/" + req.params.slug + ".html")) {
-		res.sendFile(path.join(__dirname, "./build/" + req.params.slug + ".html"))
+	if (fs.existsSync("./build/article/" + req.params.slug + ".html")) {
+		res.sendFile(path.join(__dirname, "./build/article/" + req.params.slug + ".html"))
+	} else {
+		res.status(404).send(404)
+	}
+})
+
+app.get("/", (req, res) => {
+	if (fs.existsSync("./build/index.html")) {
+		res.sendFile(path.join(__dirname, "./build/index.html"))
 	} else {
 		res.status(404).send(404)
 	}

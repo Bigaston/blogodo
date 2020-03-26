@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Instant Jeu</title>
+		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<meta property="og:title" content="Instant Jeu" />
+		<meta property="og:description" content="Parfois j'ai envie de parler de jeux que j'ai apprécié, ou pas, mais sans me prendre la tête à faire un épisode de podcast ou autre. Alors j'ai ouvers ce mini-blog, pour pouvoir le faire sans trop de complexité!" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://jeux.bigaston.me/" />
+		<meta property="og:image" content="https://pbs.twimg.com/profile_images/1171768796140449797/1wZdPODn.jpg" />
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<img class="header-img" src="https://pbs.twimg.com/profile_banners/1022970728344432641/1568206427/600x200" alt="Cover" />
+			<div class="content">
+				<h1>Instant Jeu</h1>
+				<p>Parfois j'ai envie de parler de jeux que j'ai apprécié, ou pas, mais sans me prendre la tête à faire un épisode de podcast ou autre. Alors j'ai ouvers ce mini-blog, pour pouvoir le faire sans trop de complexité! Bonne lecture!</p>
+				
+				<h2>Articles</h2>
+				<section>
+					{{#articles}}
+						<article class="jeux">
+							<a href="/article/{{ slug }}">{{ title }}</a>
+							<p>{{ subtitle }}</p>
+							<div>
+								<p class="tags">
+									{{#tags}}
+										<span>{{name}}</span>
+									{{/tags}}
+								</p>
+								<p class="date-jeux">{{ pubdate }}</p>
+							</div>
+						</article>
+					{{/articles}}
+					{{^articles}}
+						<p>Pas d'articles pour le moment!</p>
+					{{/articles}}
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
+
+

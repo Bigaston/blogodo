@@ -49,6 +49,20 @@ body {
   font-style: none;
 }
 
+.content a {
+	color: black;
+}
+
+.backhome {
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.backhome > a{
+	color: black;
+}
+
 @media screen and (max-width: 490px) {
   .content > h1 {
     font-size: 30px;
@@ -78,5 +92,34 @@ body {
 }
 
 .date:before {
-  content: "Publié le "
+  content: "Publié le ";
+}
+
+.jeux {
+  background-color: white;
+  transition: background-color 0.5s;
+  border-radius: 5px;
+  padding: 5px;
+  margin: -5px;
+}
+
+.jeux:hover {
+  background-color: #E5E7E9;
+}
+
+.jeux > a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.jeux > p {
+  margin: 0px;
+}
+
+.jeux > div {
+  margin: 0px;
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ title }}</title>
+		<title>{{ title }} - Instant Jeu</title>
 		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<meta property="og:title" content="{{ title }} - Instant Jeu" />
+		<meta property="og:description" content="{{ subtitle }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://jeux.bigaston.me/article/{{ slug }}" />
+		<meta property="og:image" content="https://pbs.twimg.com/profile_images/1171768796140449797/1wZdPODn.jpg" />
 	</head>
 
 	<body>
 		<div class="wrapper">
+			<p class="backhome"><a href="/">Acceuil</a></p>
 			<img class="header-img" src="{{{ img }}}" alt="Bannière" />
 			<div class="content">
 				<h1>{{ title }}</h1>
