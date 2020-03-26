@@ -24,9 +24,9 @@ app.get("/static/:file", (req, res) => {
 	}
 });
 
-app.get("/article/:slug", (req, res) => {
-	if (fs.existsSync("./build/article/" + req.params.slug + ".html")) {
-		res.sendFile(path.join(__dirname, "./build/article/" + req.params.slug + ".html"))
+app.get("/p/:slug", (req, res) => {
+	if (fs.existsSync("./build/post/" + req.params.slug + ".html")) {
+		res.sendFile(path.join(__dirname, "./build/post/" + req.params.slug + ".html"))
 	} else {
 		res.status(404).send(404)
 	}

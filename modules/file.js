@@ -9,7 +9,7 @@ module.exports = {
 	render: () => {
 		Metalsmith(__dirname)
 		.source('../source')      
-		.destination('../build/article')
+		.destination('../build/post')
 		.clean(true)                  // do not clean destination
 		.use(markdown())
 		.use(render())
