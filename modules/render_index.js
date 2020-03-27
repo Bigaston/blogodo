@@ -8,7 +8,16 @@ function plugin(opts){
 	return function (files, metalsmith, done){
 		const template = fs.readFileSync(__dirname + "/layout_index.mustache", "utf8")
 		
-		obj = {articles: []}
+		obj = {
+			site: {
+				title: process.env.TITLE,
+				description: process.env.DESCRIPTION,
+				host: process.env.HOST,
+				logo: process.env.LOGO,
+				banner: process.env.BANNER
+			},
+			articles: []
+		}
 
 		Object.keys(files).forEach(function(file){ 
 			slug = file.replace(".html", "")

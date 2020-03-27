@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ title }} - Instant Jeu</title>
+		<title>{{ article.title }} - {{ site.title }}</title>
 		<link rel="stylesheet" type="text/css" href="/static/style.css">
-		<meta property="og:title" content="{{ title }} - Instant Jeu" />
-		<meta property="og:description" content="{{ subtitle }}" />
+		<meta property="og:title" content="{{ article.title }} - {{ site.title}}" />
+		<meta property="og:description" content="{{ article.subtitle }}" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="http://jeux.bigaston.me/p/{{ slug }}" />
-		<meta property="og:image" content="https://pbs.twimg.com/profile_images/1171768796140449797/1wZdPODn.jpg" />
+		<meta property="og:url" content="{{ site.host }}/p/{{ article.slug }}" />
+		<meta property="og:image" content="{{ site.logo }}" />
 	</head>
 
 	<body>
 		<div class="wrapper">
 			<p class="backhome"><a href="/">Acceuil</a></p>
-			<img class="header-img" src="{{{ img }}}" alt="Bannière" />
+			{{#article.img}}
+				<img class="header-img" src="{{{ article.img }}}" alt="Bannière" />
+			{{/article.img}}
 			<div class="content">
-				<h1>{{ title }}</h1>
-				<p class="subtitle">{{ subtitle }}</p>
+				<h1>{{ artiel.title }}</h1>
+				<p class="subtitle">{{ article.subtitle }}</p>
 				<p class="tags">Tags :  
-					{{#tags}}
+					{{#article.tags}}
 						<span>{{name}}</span>
-					{{/tags}}
+					{{/article.tags}}
 				</p>
 
-				{{{ contents}}}
-				<p class="date">{{ pubdate }}</p>
+				{{{ article.contents }}}
+				<p class="date">{{ article.pubdate }}</p>
 			</div>
 		</div>
 	</body>
