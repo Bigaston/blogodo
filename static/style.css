@@ -73,7 +73,7 @@ body {
   }
 }
 
-.tags span {
+.tags a {
   background: linear-gradient(120deg,#2C3E50,#2C3E50);
   padding: 2px 5px;
   color: black;
@@ -82,17 +82,13 @@ body {
   color: #F4F6F7;
 }
 
-.tags span:before {
+.tags a:before {
   content: '#';
 }
 
 .date {
   font-style: italic;
   font-weight: bold;
-}
-
-.date:before {
-  content: "Publié le ";
 }
 
 .jeux {

@@ -21,12 +21,12 @@
 				<p class="subtitle">{{ article.subtitle }}</p>
 				<p class="tags">Tags :  
 					{{#article.tags}}
-						<span>{{name}}</span>
+						<a href="/t/{{name}}">{{name}}</a>
 					{{/article.tags}}
 				</p>
 
 				{{{ article.contents }}}
-				<p class="date">{{ article.pubdate }}</p>
+				<p class="date">Publié le {{ article.pubdate }}</p>
 			</div>
 		</div>
 	</body>

@@ -37,7 +37,7 @@ function plugin(opts){
 			post_obj[slug] = {
 				title: files[file].title,
 				subtitle: files[file].subtitle,
-				tags: files[file].tags.replace(/ /g, "").split(","),
+				tags: tags,
 				pubdate: files[file].pubdate
 			}
 
