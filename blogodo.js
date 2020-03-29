@@ -6,6 +6,11 @@ const mustache = require("mustache")
 
 require('dotenv').config()
 
+// Vérification de la présence des dossiers de base
+if (!fs.existsSync("source")) fs.mkdirSync("source")
+if (!fs.existsSync("img")) fs.mkdirSync("img")
+if (!fs.existsSync("build")) fs.mkdirSync("build")
+
 // Rendu des fichiers
 file.render()
 
