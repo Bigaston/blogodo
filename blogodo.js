@@ -4,12 +4,20 @@ const fs = require("fs")
 const file = require("./modules/file")
 const mustache = require("mustache")
 
-require('dotenv').config()
-
 // Vérification de la présence des dossiers de base
 if (!fs.existsSync("source")) fs.mkdirSync("source")
 if (!fs.existsSync("img")) fs.mkdirSync("img")
 if (!fs.existsSync("build")) fs.mkdirSync("build")
+if (!fs.existsSync(".env")) fs.writeFileSync(".env", `
+PORT=4578
+TITLE=Blogodo
+DESCRIPTION=Un blog sous blogodo
+HOST=http://localhost:4578
+LOGO=/img/logo.jpg
+BANNER=/img/banner.jpg
+`)
+
+require('dotenv').config()
 
 // Rendu des fichiers
 file.render()
