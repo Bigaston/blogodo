@@ -33,13 +33,16 @@ function plugin(opts){
 		})
 
 		obj.articles.sort((a,b) => {
-			aPart = a.pubdate.split("/")
-			dateA = new Date(+aPart[2], aPart[1] - 1, +aPart[0])
+			if (!!a.pubdate && !!b.pubdate) {
+				aPart = a.pubdate.split("/")
+				dateA = new Date(+aPart[2], aPart[1] - 1, +aPart[0])
 
-			bPart = b.pubdate.split("/")
-			dateB = new Date(+bPart[2], bPart[1] - 1, +bPart[0])
-
-			return -(dateA.getTime() - dateB.getTime());
+				bPart = b.pubdate.split("/")
+				dateB = new Date(+bPart[2], bPart[1] - 1, +bPart[0])
+				return -(dateA.getTime() - dateB.getTime());
+			} else {
+				return a < b ? -1 : 1
+			}	
 		});
 
 		fs.writeFileSync(path.join(__dirname, "../build/index.html"), mustache.render(template, obj))

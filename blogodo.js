@@ -35,7 +35,7 @@ app.get("/t/:tag", (req, res) => {
 		if (req.params.tag == undefined) {
 			res.redirect("/")
 		} else {
-			var db = require("./build/db.json")
+			var db = JSON.parse(fs.readFileSync("./build/db.json"))
 
 			if (db.tags[req.params.tag] == undefined) {
 				res.status(404).send(`Tag "${req.params.tag}" not found`)
@@ -59,13 +59,16 @@ app.get("/t/:tag", (req, res) => {
 				})
 
 				obj.articles.sort((a,b) => {
-					aPart = a.pubdate.split("/")
-					dateA = new Date(+aPart[2], aPart[1] - 1, +aPart[0])
+					if (!!a.pubdate && !!b.pubdate) {
+						aPart = a.pubdate.split("/")
+						dateA = new Date(+aPart[2], aPart[1] - 1, +aPart[0])
 		
-					bPart = b.pubdate.split("/")
-					dateB = new Date(+bPart[2], bPart[1] - 1, +bPart[0])
-		
-					return -(dateA.getTime() - dateB.getTime());
+						bPart = b.pubdate.split("/")
+						dateB = new Date(+bPart[2], bPart[1] - 1, +bPart[0])
+						return -(dateA.getTime() - dateB.getTime());
+					} else {
+						return a < b ? -1 : 1
+					}	
 				});
 
 				res.setHeader("content-type", "text/html");

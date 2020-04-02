@@ -34,7 +34,9 @@
 										<a href="/t/{{name}}">{{name}}</a>
 									{{/tags}}
 								</p>
-								<p class="date-jeux">{{ pubdate }}</p>
+								{{#pubdate}}
+									<p class="date-jeux">{{ pubdate }}</p>
+								{{/pubdate}}
 							</div>
 						</article>
 					{{/articles}}

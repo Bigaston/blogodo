@@ -26,7 +26,10 @@
 				</p>
 
 				{{{ article.contents }}}
-				<p class="date">Publié le {{ article.pubdate }}</p>
+
+				{{#article.pubdate}}
+					<p class="date">Publié le {{ article.pubdate }}</p>
+				{{/article.pubdate}}
 			</div>
 		</div>
 	</body>
