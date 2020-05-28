@@ -8,11 +8,13 @@
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="{{ site.host }}/p/{{ article.slug }}" />
 		<meta property="og:image" content="{{ site.logo }}" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	</head>
 
 	<body>
 		<div class="wrapper">
-			<p class="backhome"><a href="/">Acceuil</a></p>
+			<p class="backhome"><a href="/">Accueil</a></p>
 			{{#article.img}}
 				<img class="header-img" src="{{{ article.img }}}" alt="Bannière" />
 			{{/article.img}}
