@@ -1,8 +1,7 @@
 # blogodo
 Petit système de blog minimaliste encore en cours de développement.
 
-Exemple : [blog.bigaston.me](http://blog.bigaston.met
-)
+Exemple : [blog.bigaston.me](http://blog.bigaston.me)
 
 ## Installation
 ```
