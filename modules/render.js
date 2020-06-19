@@ -1,5 +1,6 @@
 const mustache = require("mustache")
 const fs = require("fs")
+const package = require("../package.json")
 
 module.exports = plugin;
 
@@ -43,7 +44,7 @@ function plugin(opts){
 
 			files[file].slug = slug
 			files[file].tags = tags
-			files[file].contents = Buffer.from(mustache.render(template, {site: site, article: files[file]}))
+			files[file].contents = Buffer.from(mustache.render(template, {site: site, article: files[file], version: package.version}))
 		})
 
 		fs.writeFileSync("./build/db.json", JSON.stringify({tags: tag_obj, posts: post_obj}, null, 4))
