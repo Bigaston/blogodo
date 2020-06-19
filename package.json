@@ -1,6 +1,6 @@
 {
   "name": "blogodo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Petit système de blog minimaliste",
   "main": "blogodo.js",
   "scripts": {
