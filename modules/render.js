@@ -22,12 +22,9 @@ function plugin(opts){
 			files[file].contents = files[file].contents.toString()
 
 			var tags = []
-
-			if (files[file].tags != undefined) {
-				files[file].tags.replace(/ /g, "").split(",").forEach(t => {
-					tags.push({name: t})
-				})
-			}
+			files[file].tags.replace(/ /g, "").split(",").forEach(t => {
+				tags.push({name: t})
+			})
 
 			var slug = file.replace(".html", "")
 			tags.forEach(t => {
