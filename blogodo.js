@@ -109,6 +109,15 @@ app.get("/img/*", (req, res) => {
 	}
 })
 
+// Affichage du flux RSS
+app.get("/rss", (req, res) => {
+	if (fs.existsSync("./build/rss.xml")) {
+		res.sendFile(path.join(__dirname, "./build/rss.xml"))
+	} else {
+		res.status(404).send("Not Found")
+	}
+})
+
 // Affichage de la page d'acceuil
 app.get("/", (req, res) => {
 	if (fs.existsSync("./build/index.html")) {
