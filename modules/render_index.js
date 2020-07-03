@@ -1,6 +1,7 @@
 const mustache = require("mustache")
 const fs = require("fs")
 const path = require("path")
+const package = require("../package.json")
 
 module.exports = plugin;
 
@@ -17,7 +18,8 @@ function plugin(opts){
 				banner: process.env.BANNER,
 				stat_script: !!process.env.STAT_SCRIPT ? process.env.STAT_SCRIPT : undefined
 			},
-			articles: []
+			articles: [],
+			version: package.version
 		}
 
 		Object.keys(files).forEach(function(file){ 
