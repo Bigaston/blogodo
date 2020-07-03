@@ -15,6 +15,7 @@ DESCRIPTION=Un blog sous blogodo
 HOST=http://localhost:4578
 LOGO=/img/logo.jpg
 BANNER=/img/banner.jpg
+STAT_SCRIPT=
 `)
 
 require('dotenv').config()

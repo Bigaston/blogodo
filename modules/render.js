@@ -11,7 +11,8 @@ function plugin(opts){
 			description: process.env.DESCRIPTION,
 			host: process.env.HOST,
 			logo: process.env.LOGO,
-			banner: process.env.BANNER
+			banner: process.env.BANNER,
+			stat_script: !!process.env.STAT_SCRIPT ? process.env.STAT_SCRIPT : undefined
 		}
 
 		var tag_obj = {}
